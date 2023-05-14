@@ -23,9 +23,7 @@ namespace Project06.Model
 
             if(imageIndex > 15 && imageIndex < 0) imageIndex = 15;
             else this.imageIndex = imageIndex;
-
-            if (description == null) task_description = "No description available.";
-            else this.task_description = description;
+            this.task_description = description;
         }
     }
 }

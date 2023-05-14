@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Project06.Model
 {
-    internal class Profile
+    public class AProfile
     {
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public AProfile(string Name, string Description) {
+        
+            this.Name = Name;
+            this.Description = Description;
+        }
     }
 }

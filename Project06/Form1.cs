@@ -35,35 +35,6 @@ namespace Project06
             listView1.SmallImageList = imageList;
             listView1.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.None);
         }
-        private void Test()
-        {
-           
-           
-
-
-
-            for (int i = 0; i <= 7; i++)
-            {
-                ListViewItem list_item = new ListViewItem("");
-                list_item.SubItems.Add("Приготовить голубичный торт");
-                list_item.SubItems.Add("Приготовить голубичный торт с использованием ингридентов");
-                list_item.SubItems.Add("5.14.2023");
-                list_item.SubItems.Add("250");
-
-
-                list_item.ImageIndex = i;
-                if(i %2 == 0)
-                {
-                    list_item.BackColor = Color.Gray;
-                }
-                else
-                {
-                    list_item.BackColor = Color.DarkGray;
-                }
-               
-                listView1.Items.Add(list_item);
-            }
-        }
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -77,9 +48,11 @@ namespace Project06
         private void AddTasks()
         {
             listView1.Items.Clear();
-
             for (int i = 0; i < tasks.Count; i++)
             {
+                if (String.IsNullOrEmpty(tasks[i].task_description)) tasks[i].task_description = "No description available.";
+                if (String.IsNullOrEmpty(tasks[i].task_name)) tasks[i].task_name = "Task";
+
                 ListViewItem list_item = new ListViewItem("");
                 list_item.SubItems.Add(tasks[i].task_name);
                 list_item.SubItems.Add(tasks[i].task_description);
@@ -90,10 +63,74 @@ namespace Project06
                 if (i % 2 == 0) list_item.BackColor = Color.Gray;
                 else list_item.BackColor = Color.DarkGray;
                 listView1.Items.Add(list_item);
-
             }
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tabControl1.Visible = false;
+            button1.Enabled = true;
+            button2.Enabled = false;
+            button6.Visible= false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl1.Visible = true;
+            button1.Enabled = false;
+            button2.Enabled = true;
+            button6.Visible = true;
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var focusedItem = listView1.FocusedItem;
+                if (focusedItem != null && focusedItem.Bounds.Contains(e.Location))
+                {
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
+            }
+        }
+        private void doneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetExp(tasks[listView1.SelectedItems[0].Index].exp);
+            tasks.RemoveAt(listView1.SelectedItems[0].Index);
+            AddTasks();
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            GetExp(tasks[listView1.SelectedItems[0].Index].exp);
+            tasks.RemoveAt(listView1.SelectedItems[0].Index);
+            AddTasks();
+            
+        }
+        private void GetExp(int amount)
+        {
+            controller.GetLevel(amount);
+            label3.Text = controller.level.level_exp.ToString() + "/" + controller.level.next_lvl_exp.ToString();
+            label2.Text = controller.level.level.ToString();
+            progressBar1.Maximum = controller.level.next_lvl_exp;
+            progressBar1.Value = controller.level.level_exp;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tasks.RemoveAt(listView1.SelectedItems[0].Index);
+            AddTasks();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AProfile profile = controller.ChangeProfile(label4.Text, label5.Text,controller.level.level);
+            if(profile != null ) {
+                label4.Text = profile.Name;
+                label5.Text = profile.Description;
+            }
+            
+        }
     }
 }

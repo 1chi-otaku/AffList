@@ -10,6 +10,12 @@ namespace Project06
 {
     class Controller
     {
+        public Level level { get; set; }
+
+        public Controller()
+        {
+            level = new Level();
+        }
         public ATask NewTask()
         {
             Add add = new Add();
@@ -24,6 +30,28 @@ namespace Project06
                 }
             }
             return null;
+        }
+        public AProfile ChangeProfile(string name, string description, int level)
+        {
+            Profile profile = new Profile();
+            profile.SetProfileDetails(name, description, level);
+            AProfile Aprofile = null;
+            DialogResult rez = profile.ShowDialog();
+            if (rez == DialogResult.OK)
+            {
+                Aprofile = profile.ReturnProfile();
+                if (profile != null)
+                {
+                    return Aprofile;
+                }
+            }
+            return null;
+        }
+
+        public Level GetLevel(int exp_amount)
+        {
+            level.GetExp(exp_amount);
+            return level;
         }
     }
 }

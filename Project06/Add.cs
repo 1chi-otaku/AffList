@@ -21,7 +21,7 @@ namespace Project06
         }
         public ATask ReturnTask()
         {
-            ATask task = new ATask(textBox1.Text, textBox2.Text, "Random", xp, Convert.ToInt32(comboBox1.Text));
+            ATask task = new ATask(textBox1.Text, textBox2.Text, dateTimePicker1.Value.ToShortDateString(), xp, Convert.ToInt32(comboBox1.Text));
             return task;
         }
 
@@ -44,7 +44,7 @@ namespace Project06
         }
         private void CalculateEXP()
         {
-            xp = Convert.ToInt32((trackBar1.Value * 1.1) * ((trackBar2.Value * 1.2) / 10) * ((trackBar3.Value * 1)/10));
+            xp = Convert.ToInt32((trackBar1.Value * 1.3) * ((trackBar2.Value * 1.5) / 10) * ((trackBar3.Value * 1.4)/10));
             label16.Text = xp.ToString() + " EXP";
         }
     }
