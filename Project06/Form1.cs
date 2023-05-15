@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace Project06
     {
         Controller controller;
         List<ATask> tasks;
+        bool theme = true;
         public Form1()
         {
             InitializeComponent();
@@ -131,6 +133,28 @@ namespace Project06
                 label5.Text = profile.Description;
             }
             
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(theme == true)
+            {
+                theme = false;
+                this.BackColor = Color.Wheat;
+                button1.BackColor = Color.FromArgb(208, 174, 54);
+                button2.BackColor = Color.FromArgb(208, 174, 54);
+                button3.BackColor = Color.FromArgb(208, 174, 54);
+                button4.BackColor = Color.FromArgb(208, 174, 54);
+                button5.BackColor = Color.FromArgb(208, 174, 54);
+                button6.BackColor = Color.FromArgb(208, 174, 54);
+                label1.ForeColor = Color.Black; 
+                label2.ForeColor = Color.DarkGreen;
+                label3.ForeColor = Color.Black;
+                label4.ForeColor = Color.Black;
+                label5.ForeColor = Color.Black;
+                listView1.BackColor = Color.FromArgb(187, 174, 147);
+                tabPage1.BackColor = Color.WhiteSmoke;
+            }
         }
     }
 }
