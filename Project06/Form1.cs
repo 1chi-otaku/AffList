@@ -155,6 +155,11 @@ namespace Project06
                 listView1.BackColor = Color.FromArgb(187, 174, 147);
                 tabPage1.BackColor = Color.WhiteSmoke;
             }
+            else
+            {
+                theme = true;
+                this.BackColor = Color.FromArgb(32, 32, 32);
+            }
         }
     }
 }

@@ -161,7 +161,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Black;
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPage2.Controls.Add(this.listView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -220,6 +220,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPage3.Controls.Add(this.listView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -227,7 +228,6 @@
             this.tabPage3.Size = new System.Drawing.Size(1120, 512);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tomorrow";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // listView3
             // 
@@ -279,6 +279,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPage4.Controls.Add(this.listView4);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -286,7 +287,6 @@
             this.tabPage4.Size = new System.Drawing.Size(1120, 512);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Overdue";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // listView4
             // 
