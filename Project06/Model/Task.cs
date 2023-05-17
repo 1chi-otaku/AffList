@@ -15,6 +15,7 @@ namespace Project06.Model
         public int imageIndex { get; set; }
         public int exp { get; set; }
 
+        public ATask() { }
         public ATask(string task_name, string description, string date, int exp, int imageIndex)
         {
             this.task_name = task_name;

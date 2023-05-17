@@ -34,5 +34,16 @@ namespace Project06
             textBox2.Text = description;
             label2.Text = level.ToString(); 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            }
+        }
+
+      
     }
 }

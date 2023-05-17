@@ -18,6 +18,7 @@ namespace Project06
         {
             InitializeComponent();
             xp = 0;
+            comboBox1.Text = "0";
         }
         public ATask ReturnTask()
         {
@@ -34,7 +35,7 @@ namespace Project06
         private void trackBar2_ValueChanged(object sender, EventArgs e)
         {
             label14.Text = trackBar2.Value.ToString() + "%";
-            CalculateEXP();
+            CalculateEXP(); 
         }
 
         private void trackBar3_ValueChanged(object sender, EventArgs e)
@@ -46,6 +47,11 @@ namespace Project06
         {
             xp = Convert.ToInt32((trackBar1.Value * 1.3) * ((trackBar2.Value * 1.5) / 10) * ((trackBar3.Value * 1.4)/10));
             label16.Text = xp.ToString() + " EXP";
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile("images/r" + comboBox1.Text + ".png");
         }
     }
 }

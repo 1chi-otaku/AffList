@@ -11,6 +11,7 @@ namespace Project06.Model
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public AProfile() { }
         public AProfile(string Name, string Description) {
         
             this.Name = Name;

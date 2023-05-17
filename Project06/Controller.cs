@@ -53,5 +53,9 @@ namespace Project06
             level.GetExp(exp_amount);
             return level;
         }
+        public void SetLevel(Level level)
+        {
+            this.level= level;
+        }
     }
 }

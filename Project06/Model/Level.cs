@@ -20,6 +20,15 @@ namespace Project06.Model
             level_exp = 0;
             next_lvl_exp = 1000;
         }
+
+        public Level(int level, int alltime_exp, int level_exp, int next_lvl_exp)
+        {
+            this.level = level;
+            this.alltime_exp = alltime_exp;
+            this.level_exp = level_exp;
+            this.next_lvl_exp = next_lvl_exp;
+        }
+
         public void GetExp(int amount)
         {
             alltime_exp += amount;
